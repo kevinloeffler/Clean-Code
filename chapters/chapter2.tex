@@ -1,4 +1,16 @@
 \section{Naming}
 
-\subsection{Section}
-Some text\dots
+\subsection{Descriptive Names}
+Names should always describe why they exist and what they do. If a variable declaration needs a comment it has already failed.
+
+\center{\small{Bad and good vriable names}}
+\begin{lstlisting}[language=Swift]
+let d: int;  // elapsed time in days
+let elapsedTimeInDays: int;  // descriptive = no comment needed
+\end{lstlisting}
+\raggedright
+
+Additionally, variables should always have names that are pronounceable and searchable. A variable named '\texttt{x}' is very hard to ever find again.
+
+\subsection{Honest Names}
+When using programming concepts in our names, developers should be careful not to misuse a name. For example a variable that is called '\texttt{accountList}' should really be a list and not some other data structure. Much better would be an implementation agnostic name like '\texttt{accounts}'.

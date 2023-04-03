@@ -5,4 +5,5 @@
 \contentsline {subsubsection}{\numberline {1.2.2}Maintainability}{1}{}%
 \contentsline {subsubsection}{\numberline {1.2.3}Care}{1}{}%
 \contentsline {section}{\numberline {2}Naming}{2}{}%
-\contentsline {subsection}{\numberline {2.1}Section}{2}{}%
+\contentsline {subsection}{\numberline {2.1}Descriptive Names}{2}{}%
+\contentsline {subsection}{\numberline {2.2}Honest Names}{2}{}%
