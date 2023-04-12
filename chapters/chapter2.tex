@@ -1,6 +1,6 @@
 \section{Naming}
 
-\subsection{Descriptive Names}
+\subsection{Descriptive names}
 Names should always describe why they exist and what they do. If a variable declaration needs a comment it has already failed.
 
 \center{\small{Bad and good vriable names}}
@@ -12,5 +12,17 @@ let elapsedTimeInDays: int;  // descriptive = no comment needed
 
 Additionally, variables should always have names that are pronounceable and searchable. A variable named '\texttt{x}' is very hard to ever find again.
 
-\subsection{Honest Names}
+\subsection{Honest names}
 When using programming concepts in our names, developers should be careful not to misuse a name. For example a variable that is called '\texttt{accountList}' should really be a list and not some other data structure. Much better would be an implementation agnostic name like '\texttt{accounts}'.
+
+\subsection{Stay in the domain}
+When naming variables and functions, a developer should stay in the current problem domain. For example when building a photo editing app we should use terminology that professionals in that area use. The clone tool should be implemented with a clone class, not the copy or replace class and the variable should be called opacity not transparency.
+
+\subsection{Classes and methods}
+Class names should be nouns like \texttt{Customer}, \texttt{AboutPage} or \texttt{FileParser}. Methods should be verbs like \texttt{fetchRequest}, \texttt{deletePage} or \texttt{save}.
+
+\subsection{One concept per word}
+Each abstract concept should have one word describing it. Methods that do something similar should use the same word. For example there should only be one word to describe getting data from somewhere: \texttt{fetch}, \texttt{get} or \texttt{retrieve}.
+
+\subsection{Add context if necessary}
+Sometimes the context of a variable is clear: \texttt{firstName}, \texttt{lastName}, \texttt{street}, \texttt{city}, \texttt{state} form an address. But if there is a method that only uses \texttt{state} it would not be immediately clear what it means. The best solution would be to group all of them in an address class but if that is not possible, a prefix could be usefull: \texttt{addrState}.

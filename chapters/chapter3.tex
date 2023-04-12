@@ -1,0 +1,57 @@
+\section{Methods}
+
+\subsection{Short}
+Martins most important rule is that methods should be short, ideally under 20 lines.
+
+\subsection{One Task}
+Each method should do one thing but do it well. Having methods that are short and specific in combination with descriptive names leads to self documenting code. Doing one thing also means that there should not be any deep nesting. Especially bad are different layers of abstraction in the same method.
+
+\begin{lstlisting}[language=Swift, caption={Method with more than one task}]
+func importImage(imagePath: String) {
+    var image: Image? = nil
+
+    if imagePath.startsWith('.') -> Image? {
+        // relative path
+        try {
+            image = readImage(from: "/usr/lib/photos/\(imagePath)")
+        } catch err {
+            throw InvalidPathException()
+        }
+    } else {
+        // absolute path
+        try {
+            image = readImage(from: imagePath)
+        } catch err {
+            throw InvalidPathException()
+        }
+    }
+    
+    if image.colorSpace != "RGB" {
+        image?.transformColorSpace(to: "RGB")
+    }
+
+    return image
+    
+}
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=Swift, caption={Refactored method that only does one thing: import an image}]
+func importImage(imagePath: String) -> Image? {
+
+    guard validateImagePath(imagePath) else {
+        throw InvalidPathException()
+    }
+
+    let rawImage: Image = readImage(from: imagePath)
+    let image: Image = normalizeColorSpace(image: rawImage, to: "RGB")
+
+    return image
+
+\end{lstlisting}
+
+The refactored method improves the code in different ways:
+
+1. By treating error handling as a 'task' we need to separate it out into another method. The new method is much more readable without the nested conditionals and error handling.
+
+2. With the Introduction of the \texttt{normalizeColorSpace} method, the code becomes more reusable because we can use this method with a different color profile somewhere else in the code.
