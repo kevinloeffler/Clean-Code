@@ -1,0 +1,23 @@
+\section{Error handling}
+Error handling is important, but it should never conceal the logic.
+
+\subsection{Exceptions}
+Exceptions are the preferred way to report errors. Martin suggests that exceptions should be unchecked because checked exceptions violate the open closed principle. [TODO: citation needed]
+Like every other part of the code, exceptions should be well named and provide context about where and why they occured.
+
+\subsection{Special case object}
+Code that checks for null on every third line is ugly, hard to read and definitely not clean. Instead of returning null when a value is missing or not present the special case object pattern should be used:
+
+\begin{lstlisting}[language=Swift, caption={Function that uses the special case object pattern}]
+func getFavorites() -> [Image] {
+    var favorites: [Image] = []
+    for image in images {
+        if image.isFavorite {
+            favorites.append(image)
+        }
+    }
+    return favorites
+}
+\end{lstlisting}
+
+With this pattern we try not to return null but a 'special object' in this case just the empty list. The special cases should be handled in the callee, not the caller. Null should also never be used as a function argument.

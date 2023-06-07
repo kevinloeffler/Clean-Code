@@ -1,0 +1,27 @@
+\section{Comments}
+
+\subsection{As few as possible}
+Because most comments do more harm than good they should be used as little as possible and with a lot of care. The code should be self documenting and with modern language programmers have a lot of options to do that. Therefore, comments that try to explain your code should never be necessary.
+
+\subsection{The danger of comments}
+Comments that have existed for some time are likely to be outdated. Because they never get updated when code is refactored, they start to reference non-existing variables or are detached from the code they describe. Inaccurate and outdated comments are worse than no comments. Instead of investing time into writing comments trying to explain bad code the time should be used to improve the code itself. Comments are never the source of truth, only the code is.
+
+\subsection{Good comments}
+There are some types of comments that can add value to a code base.
+
+\subsubsection{Todos}
+Todo comments can be used to mark certain tasks that should be done sometimes in the future directly in the code. Modern IDEs have tools that find all todos and highlight them, so they do not get lost.
+
+\subsubsection{Legal comments}
+Some companies require legal comments like copyright information in each file.
+
+\subsubsection{Informing comments}
+Sometimes certain details cannot be easily conveyed by the code alone. A regular expression for example may not be very readable:
+
+\begin{lstlisting}[language=Swift, caption={A useful comment describing a regular expression}]
+// timestamp format: kk:mm:ss EEE, MMM dd, yyyy
+let timestampPattern = /\d*:\d*:\d* \w*, \w* \d*, \d*/
+\end{lstlisting}
+
+\subsubsection{Inform and clarify}
+Sometimes it is necessary to explain why a design decision has been made that is not clear from just the code itself. Comments can also warn from consequences, for example that a test runs very long or that a function is not thread safe.

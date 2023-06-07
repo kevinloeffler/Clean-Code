@@ -1,16 +1,16 @@
 \section{Methods}
 
 \subsection{Short}
-Martins most important rule is that methods should be short, ideally under 20 lines.
+Martins most important rule is that methods should be short, ideally under 20 lines. This also applies to the number of arguments, which Martin argues should be never more than three. Flags are never clean.
 
 \subsection{One Task}
 Each method should do one thing but do it well. Having methods that are short and specific in combination with descriptive names leads to self documenting code. Doing one thing also means that there should not be any deep nesting. Especially bad are different layers of abstraction in the same method.
 
 \begin{lstlisting}[language=Swift, caption={Method with more than one task}]
-func importImage(imagePath: String) {
+func importImage(imagePath: String) -> Image? {
     var image: Image? = nil
 
-    if imagePath.startsWith('.') -> Image? {
+    if imagePath.startsWith('.') {
         // relative path
         try {
             image = readImage(from: "/usr/lib/photos/\(imagePath)")
@@ -55,3 +55,14 @@ The refactored method improves the code in different ways:
 1. By treating error handling as a 'task' we need to separate it out into another method. The new method is much more readable without the nested conditionals and error handling.
 
 2. With the Introduction of the \texttt{normalizeColorSpace} method, the code becomes more reusable because we can use this method with a different color profile somewhere else in the code.
+
+3. By doing just one thing our method becomes much shorter.
+
+\subsection{Case distinctions}
+Sometimes it is necessary to handle different cases in a program. But switch or if statements can become big quite fast. Because this can't be completely  avoided, they should be hidden away in a factory class.
+
+\subsection{Side effects}
+Methods with side effects should always be avoided because they can lead to unexpected coupling where methods can only be called at certain times and often do more than one thing.
+
+\subsection{Mutate or Query}
+Methods should either change the state of an object or return information about an object but never both.

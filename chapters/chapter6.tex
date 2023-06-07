@@ -1,0 +1,30 @@
+\section{Objects and data structures}
+
+\subsection{Abstraction}
+When working with objects we often want to keep most variables private. But to just use getters and setters only does so much. Developers should fundamentally think about what the best way to access the data is. Objects should hide their data and expose operations.
+
+\begin{lstlisting}[language=Swift, caption={Naive way to expose a vehicles charge}]
+protocol Vehicle {
+    func getChargeCapacityInKWh() -> Float
+    func getCurrentChargeInKWh() -> Float
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=Swift, caption={Better way to expose the charge data}]
+protocol Vehicle {
+    func getChargePercentRemaining() -> Float
+}
+\end{lstlisting}
+
+\subsection{Data structures vs objects}
+Procedural code (code that uses data structures) makes it easy to add new methods without changing the existing data structure. Object-oriented code makes it easier to add new classes without changing existing methods. Depending on if we want to add functionality or objects in the future one or the other is better.
+
+\subsection{Law of Demeter}
+The law of Demeter states that a module should know nothing about the contents of its objects. More precisely a method \( f \) should only call methods from:
+
+\begin{enumerate}
+\item Its class \( C \)
+\item An object that \( f \) creates
+\item An object that is an argument to \( f \)
+\item An object that is referenced in an instance variable of \( C \)
+\end{enumerate}
