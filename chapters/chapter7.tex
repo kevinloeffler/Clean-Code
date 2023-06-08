@@ -9,14 +9,14 @@ Like every other part of the code, exceptions should be well named and provide c
 Code that checks for null on every third line is ugly, hard to read and definitely not clean. Instead of returning null when a value is missing or not present the special case object pattern should be used:
 
 \begin{lstlisting}[language=Swift, caption={Function that uses the special case object pattern}]
-func getFavorites() -> [Image] {
-    var favorites: [Image] = []
+func getFavourites() -> [Image] {
+    var favourites: [Image] = []
     for image in images {
         if image.isFavorite {
-            favorites.append(image)
+            favourites.append(image)
         }
     }
-    return favorites
+    return favourites
 }
 \end{lstlisting}
 

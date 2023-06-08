@@ -31,7 +31,6 @@ func importImage(imagePath: String) -> Image? {
     }
 
     return image
-    
 }
 \end{lstlisting}
 
@@ -44,10 +43,9 @@ func importImage(imagePath: String) -> Image? {
     }
 
     let rawImage: Image = readImage(from: imagePath)
-    let image: Image = normalizeColorSpace(image: rawImage, to: "RGB")
-
+    let image: Image = normalizeColor(image: rawImage, to: "RGB")
     return image
-
+}
 \end{lstlisting}
 
 The refactored method improves the code in different ways:
