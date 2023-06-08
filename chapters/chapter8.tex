@@ -1,0 +1,30 @@
+\section{Testing}
+Testing has become integral part of modern development. A common and by Martin suggested way to, incorporate test is with test driven development.
+
+\subsection{Test driven development}
+TDD consist of three rules:
+
+\begin{enumerate}
+    \item Only begin writing production code after there is a failing unit test
+    \item A unit test can only contain code that fails the test
+    \item You are only allowed to write as much production code as is required to make the test pass
+\end{enumerate}
+
+A single cycle should last for about 30 seconds. It forces the developer to write tests and production code together and leads to great test coverage.
+
+\subsection{Clean tests}
+Even when working in this very quick fashion that TDD encourages it is still important that the tests fulfill the same qualitative standards that production code does, especially clarity, simplicity and expressiveness.
+
+\subsection{One assert per test}
+Each test should contain one and only one assert. If a test has more asserts, it can be broken up into smaller tests that are more readable. This also has the positive effect that only one concept is tested per test.
+
+\subsection{F.I.R.S.T.}
+Tests should follow the F.I.R.S.T. rules:
+
+\begin{itemize}
+    \item[] \textbf{Fast} Tests should run fast. If they do not, developers will not run them.
+    \item[] \textbf{Independent} Tests should be independent of each other. One test should not be a precondition for another.
+    \item[] \textbf{Repeatable} Tests should be repeatable in any environment, even without network.
+    \item[] \textbf{Self validating} Tests should have a boolean result, either they pass or they do not.
+    \item[] \textbf{Timely} Tests should be written before the production code.
+\end{itemize}
