@@ -7,7 +7,7 @@ As many variables and utility methods should be private as possible. If a test n
 Classes should be small (few instance variables and few methods) and responsible for one thing. The name of the class should describe that responsibility. There should only be one reason to change a class (single responsibility principle).
 
 \subsection{Cohesion}
-Cohesion describes how many instance variables are access by each class method. The more, the bigger the cohesion. If cohesion is low, it is often an indication that a smaller class want's to break free, and it should be extracted. High cohesion leads to many small and specialised classes.
+Cohesion describes how many instance variables are accessed by each class method. The more, the bigger the cohesion. If cohesion is low, it is often an indication that a smaller class want's to break free, and it should be extracted. High cohesion leads to many small and specialised classes.
 
 \subsection{Isolate change}
 Classes should not depend on concrete details. A stock portfolio manager for example should not have access to the stock exchange directly, instead we create an adapter that conforms to an interface and whose only job it is to pass the data along. Now when we need to test our class we can simulate the stock exchange and get predictable results.
