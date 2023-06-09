@@ -1,0 +1,21 @@
+\section{Systems}
+
+\subsection{Clean code applies to the system}
+Clean principles do not only apply to the different blocks of code but also to the system as a whole. First it is important to understand that construction and application are two very different processes. Martin suggests separating the startup process where objects get created and connected from the runtime logic.
+
+\begin{lstlisting}[language=Swift, caption={Lazy initialisation}]
+func getPen() -> Pen {
+    if (pen == nil) {
+        pen = PenTool()
+    }
+    return pen
+}
+\end{lstlisting}
+
+Code like this is often written. The advantage is that the pen object is only created if it is used. The downside of this pattern is that now there is a hard coded dependency. This also makes the code harder to test. It would be better to create the pen object at startup. This decouples the code, makes it conform to the single responsibility principle and gets rid of the null check.
+
+\subsection{Factories and dependency injeciton}
+Two helpful patterns for clean systems are factories and dependency injection. They decouple the code and increase cohesion. They help make a system more understandable and easier to scale.
+
+\subsection{Domain specific languages}
+Most industries have their own jargon. The idea behind DSLs is to create a small scripting language that reads like prose from a domain expert. A good DSL minimizes the gap of communication between an expert and the code. A DSL tries to lift the level of abstraction above coding idioms and makes it easier to implement the logic on a suitable level of abstraction.
